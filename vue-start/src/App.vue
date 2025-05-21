@@ -4,6 +4,7 @@ import TheWelcome from './components/TheWelcome.vue'
 import {onMounted, ref} from 'vue'
 const count = ref(0);
 const isClick = ref(false);
+const inputMessage = ref("");
 const changeCount = ()=> {
   count.value++;
   isClick.value = true;
@@ -32,6 +33,10 @@ onMounted(()=> {
     <button @click="changeCount" :class="{isClick: isClick}">{{ count }}</button>
     <button @click="refreshButton">刷新</button>
   </main>
+  <div>
+    <span>{{ inputMessage  }}</span>
+    <input v-model="inputMessage"/>
+  </div>
 </template>
 
 <style scoped>
