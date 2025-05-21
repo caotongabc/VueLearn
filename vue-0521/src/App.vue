@@ -1,47 +1,55 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import { ref } from 'vue'
+import HelloWorld from './components/HelloWorld.vue';
+const asiderInfo = ref([{msg: 'test1'},{msg: 'test2'},{msg: 'test3'},{msg: 'test4'},])
+const viewInfo = ref([{msg: 'test1'},{msg: 'test2'}])
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+  <div class="page">
+  <div class="header">s</div>
+  <div class="container">
+    <div class="asider" >
+      <HelloWorld v-for="item in asiderInfo" :msg="item.msg"/>
     </div>
-  </header>
+    <div class="view" >
+      <HelloWorld v-for="item in viewInfo" :msg="item.msg"/>
+    </div>
+  </div>
+</div>
 
-  <main>
-    <TheWelcome />
-  </main>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-}
+.page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
 }
-
-@media (min-width: 1024px) {
-  header {
+.header {
+  display: inline-block;
+  height: 20%;
+  background-color: bisque;
+  margin: 10px;
+  border-radius:10px;
+}
+.container {
     display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+    justify-content: center;
+    width: 100%;
+    height: 80%;
 
-  .logo {
-    margin: 0 2rem 0 0;
+    .asider {
+      width: 30%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .view {
+      width: 70%;
+      display: flex;
+    }
   }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
 </style>

@@ -28,17 +28,22 @@ h1 {
 
 h3 {
   font-size: 1.2rem;
+  color: #000;
 }
-
+.greetings {
+  background-color: whitesmoke;
+  margin: 0 10px 10px;
+  border-radius: 10px;
+}
 .greetings h1,
 .greetings h3 {
   text-align: center;
 }
 
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) {
   .greetings h1,
   .greetings h3 {
     text-align: left;
   }
-}
+} */
 </style>
